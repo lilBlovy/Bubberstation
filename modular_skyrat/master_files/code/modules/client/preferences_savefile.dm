@@ -112,6 +112,7 @@
 				"vagina_toggle" = /datum/preference/choiced/genital/vagina,
 				"womb_toggle" = /datum/preference/choiced/genital/womb,
 				"breasts_toggle" = /datum/preference/choiced/genital/breasts,
+				"belly_toggle" = /datum/preference/choiced/genital/belly,
 				"anus_toggle" = /datum/preference/choiced/genital/anus,
 			)
 
