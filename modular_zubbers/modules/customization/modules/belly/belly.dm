@@ -26,7 +26,7 @@
 
 /obj/item/organ/external/genital/belly/get_sprite_size_string()
 	var/current_size = clamp(FLOOR(genital_size, 1), BELLY_MIN_SIZE, BELLY_MAX_SIZE)
-	var/passed_string = "belly_[genital_type]_[current_size]"
+	var/passed_string = "belly_[current_size]_[genital_type]"
 	return passed_string
 
 /obj/item/organ/external/genital/belly/build_from_dna(datum/dna/DNA, associated_key)
@@ -39,7 +39,7 @@
 	if(DNA.features["belly_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
 
-/datum/bodypart_overlay/mutant/genital/breasts/get_global_feature_list()
+/datum/bodypart_overlay/mutant/genital/belly/get_global_feature_list()
 	return GLOB.sprite_accessories[ORGAN_SLOT_BELLY]
 
 /obj/item/organ/external/genital/belly/set_size(size)
@@ -62,7 +62,8 @@
 
 /obj/item/organ/external/genital/belly/update_genital_icon_state()
 	var/current_size = clamp(FLOOR(genital_size, 1), BELLY_MIN_SIZE, BELLY_MAX_SIZE)
-	var/passed_string = "belly_[genital_type]_[current_size]"
+	var/passed_string = "belly_[current_size]_[genital_type]"
+	icon_state = passed_string
 	return passed_string
 
 
