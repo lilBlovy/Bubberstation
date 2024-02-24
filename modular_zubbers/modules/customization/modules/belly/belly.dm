@@ -58,3 +58,11 @@
 			suffix = pick(GLOB.belly_obese_size_suffixes)
 	rolled_description = "[prefix] [suffix]"
 	described_size = text2num(genital_size)
+
+
+/obj/item/organ/external/genital/belly/update_genital_icon_state()
+	var/current_size = clamp(FLOOR(genital_size, 1), BELLY_MIN_SIZE, BELLY_MAX_SIZE)
+	var/passed_string = "belly_[genital_type]_[current_size]"
+	return passed_string
+
+

@@ -8433,6 +8433,7 @@
 #include "modular_zubbers\modules\customization\modules\belly\belly_lists.dm"
 #include "modular_zubbers\modules\customization\modules\belly\belly_procs.dm"
 #include "modular_zubbers\modules\customization\modules\belly\prefs_datums.dm"
+#include "modular_zubbers\modules\customization\modules\belly\sprite_accessories.dm"
 #include "modular_zubbers\modules\customization\modules\language\_language_holder.dm"
 #include "modular_zubbers\modules\customization\modules\language\common.dm"
 #include "modular_zubbers\modules\customization\modules\language\nekomimetic.dm"
