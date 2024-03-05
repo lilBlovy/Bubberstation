@@ -107,6 +107,9 @@
 	"vagina_uses_skincolor" = TRUE,\
 	"breasts_uses_skintones" = TRUE,\
 	"breasts_uses_skincolor" = TRUE,\
+	"belly_size" = 1,\
+	"belly_uses_skincolor" = TRUE,\
+	"belly_uses_skintones" = TRUE,\
 )
 
 #define AROUSAL_CANT 0
