@@ -33,6 +33,8 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
+
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/belly, GLOB.belly_shapes_list) //For Consistancy when porting over stuff.
 	*/ //SKYRAT EDIT REMOVAL END
 	//bras
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f) // SKYRAT EDIT ADDITION
@@ -54,6 +56,13 @@
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	//SKYRAT EDIT END
+		//THE BUBBER EDIT ADDITION BEGIN - Blooper
+	for(var/sound_blooper_path in subtypesof(/datum/blooper))
+		var/datum/blooper/B = new sound_blooper_path()
+		GLOB.blooper_list[B.id] = sound_blooper_path
+		if(B.allow_random)
+			GLOB.blooper_random_list[B.id] = sound_blooper_path
+	//THE BUBBER EDIT END
 
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()

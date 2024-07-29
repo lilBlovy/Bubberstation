@@ -1,16 +1,16 @@
 // THIS IS A SKYRAT UI FILE
 import {
-  FeatureDropdownInput,
-  Feature,
-  FeatureNumberInput,
   CheckboxInput,
-  FeatureTriColorInput,
-  FeatureTriBoolInput,
+  Feature,
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureDropdownInput,
+  FeatureNumberInput,
   FeatureNumeric,
   FeatureToggle,
-  FeatureChoiced,
+  FeatureTriBoolInput,
+  FeatureTriColorInput,
   FeatureValueProps,
-  FeatureChoicedServerData,
 } from '../../base';
 
 export const feature_penis: Feature<string> = {
@@ -220,4 +220,39 @@ export const erp_status_pref_v: FeatureChoiced = {
 export const erp_status_pref_mechanics: FeatureChoiced = {
   name: 'ERP Mechanical Status',
   component: FeatureDropdownInput,
+};
+
+export const feature_belly: Feature<string> = {
+  name: 'Belly Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const belly_skin_tone: FeatureToggle = {
+  name: 'Belly uses Skin Tone',
+  component: CheckboxInput,
+};
+
+export const belly_skin_color: FeatureToggle = {
+  name: 'Belly uses Skin Color',
+  component: CheckboxInput,
+};
+
+export const belly_color: Feature<string[]> = {
+  name: 'Belly Color',
+  component: FeatureTriColorInput,
+};
+
+export const belly_emissive: Feature<boolean[]> = {
+  name: 'Belly Emissives',
+  description: 'Emissive parts glow in the dark.',
+  component: FeatureTriBoolInput,
+};
+
+export const belly_size: FeatureNumeric = {
+  name: 'Belly Size',
+  component: FeatureNumberInput,
 };

@@ -389,7 +389,7 @@
 			if(robot_organs)
 				replacement_organ.organ_flags |= ORGAN_ROBOTIC
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
-			replacement_organ.Insert(alterer, special = TRUE, drop_if_replaced = FALSE)
+			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
 			var/list/new_acc_list = list()
 			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
@@ -423,6 +423,8 @@
  */
 /datum/action/innate/alter_form/proc/alter_genitals(mob/living/carbon/human/alterer)
 	var/list/genital_list
+	if(alterer.get_organ_slot(ORGAN_SLOT_BELLY))
+		genital_list += list("Belly Size")
 	if(alterer.get_organ_slot(ORGAN_SLOT_BREASTS))
 		genital_list += list("Breasts Lactation", "Breasts Size")
 	if(alterer.get_organ_slot(ORGAN_SLOT_PENIS))
@@ -520,3 +522,17 @@
 			if(new_size)
 				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
 				avocados.set_size(alterer.dna.features["balls_size"])
+
+		if("Belly Size")
+			var/obj/item/organ/external/genital/belly/grundle = alterer.get_organ_slot(ORGAN_SLOT_BELLY)
+			var/new_size = tgui_input_number(
+				alterer,
+				"Choose your belly size:\n([BELLY_MIN_SIZE]-[BELLY_MAX_SIZE]XL)",
+				"DNA Alteration",
+				max_value = BELLY_MAX_SIZE,
+				min_value = BELLY_MIN_SIZE,
+			)
+			if(new_size)
+				alterer.dna.features["belly_size"] = "[new_size]" // expects a string
+				grundle.set_size(alterer.dna.features["belly_size"])
+
